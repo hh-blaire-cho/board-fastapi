@@ -1,0 +1,9 @@
+.peerenv
+**/*.pyc
+__pycache__/
+instance/
+.env
+.env.*rc
+.vscode/
+.idea/
+.DS_Store   
