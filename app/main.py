@@ -31,7 +31,7 @@ async def lifespan(_: FastAPI) -> AsyncIterator[None]:
                     await session.execute(text(stmt))
             await session.commit()
 
-    yield  # startup 과 shutdown을 가르는 경계썬
+    yield  # startup 과 shutdown을 가르는 경계선
     # (shutdown 시 할 일 있으면 여기에)
     # await engine.dispose()
 

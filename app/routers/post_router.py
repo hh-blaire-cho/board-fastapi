@@ -16,6 +16,6 @@ async def create_post_api(req: PostCreateRequest, db: AsyncSession = Depends(get
     return await service.create_post(db, req)
 
 
-@router.get("/{member_id}", response_model=PostDto)
-async def get_member_api(post_id: int, db: AsyncSession = Depends(get_db)):
+@router.get("/{post_id}", response_model=PostDto)
+async def get_post_api(post_id: int, db: AsyncSession = Depends(get_db)):
     return await service.get_post(db, post_id)
