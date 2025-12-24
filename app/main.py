@@ -6,6 +6,8 @@ from fastapi import FastAPI
 from sqlalchemy import text
 
 from app.core.db import AsyncSessionLocal, Base, engine
+from app.routers.member_router import router as member_router
+from app.routers.post_router import router as post_router
 
 app = FastAPI()
 
@@ -34,4 +36,5 @@ async def lifespan(_: FastAPI) -> AsyncIterator[None]:
     # await engine.dispose()
 
 
-app = FastAPI(lifespan=lifespan)
+app.include_router(router=member_router)
+app.include_router(router=post_router)
