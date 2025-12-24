@@ -14,13 +14,15 @@ member_repo = MemberRepository()
 
 class PostService:
     async def create_post(self, db: AsyncSession, req: PostCreateRequest) -> PostDto:
+        # TODO: find_by_id 를 인자로 받지 말고 로그인된 사용자 아이디  # pylint: disable=W0511
         member = await member_repo.find_by_id(db, req.member_id)
         if member is None:
             raise HTTPException(status_code=404, detail="Member not found")
 
         post = Post(
-            member_id=req.member_id,
-            author_name=req.author_name,
+            member_id=member.id,
+            club_id=req.club_id,
+            author_name=member.first_name,
             content=req.content,
         )
 

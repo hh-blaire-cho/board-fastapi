@@ -2,10 +2,11 @@ from pydantic import BaseModel, ConfigDict
 
 
 class PostDto(BaseModel):
-    post_id: int
+    id: int
     member_id: int
     author_name: str
     content: str
+    club_id: int
     # feed_group_name: str
     # feed_group_type: FeedGroupType
     # feed_group_id: int
