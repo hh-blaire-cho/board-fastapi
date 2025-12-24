@@ -34,7 +34,7 @@ async def lifespan(_: FastAPI) -> AsyncIterator[None]:
     # await engine.dispose()
 
 
-app = FastAPI(lifespan=lifespan)
+main_app = FastAPI(lifespan=lifespan)
 
-app.include_router(router=member_router)
-app.include_router(router=post_router)
+main_app.include_router(router=member_router)
+main_app.include_router(router=post_router)
