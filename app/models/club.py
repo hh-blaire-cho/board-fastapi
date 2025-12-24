@@ -17,7 +17,7 @@ class Club(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     name: Mapped[str] = mapped_column(String(255), nullable=False)
-    type: Mapped[str] = mapped_column(String(50), nullable=False)
+    type: Mapped[str] = mapped_column(String(50), nullable=True)
     description: Mapped[str] = mapped_column(String(1000), nullable=True)
 
     # 연결 테이블 One To Many
