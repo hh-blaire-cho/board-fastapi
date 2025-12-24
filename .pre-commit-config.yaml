@@ -30,4 +30,4 @@ repos:
     hooks:
       - id: pylint
         language: system
-        args: ["--disable=C0114,C0115,C0116"]
+        args: ["--disable=C0114,C0115,C0116,R0903"]
