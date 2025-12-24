@@ -20,7 +20,12 @@ class Club(Base):
     type: Mapped[str] = mapped_column(String(50), nullable=False)
     description: Mapped[str] = mapped_column(String(1000), nullable=True)
 
-    # 연결 테이블
+    # 연결 테이블 One To Many
     club_members: Mapped[list[ClubMember]] = relationship(
         "ClubMember", back_populates="club", cascade="all, delete-orphan"
+    )
+    posts = relationship(
+        "Post",
+        back_populates="club",
+        cascade="all, delete-orphan",
     )
