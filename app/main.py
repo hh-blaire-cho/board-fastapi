@@ -5,6 +5,8 @@ from typing import AsyncIterator
 from fastapi import FastAPI
 from sqlalchemy import text
 
+# register SQLAlchemy models
+import app.models  # noqa: F401  pylint: disable=unused-import
 from app.core.db import AsyncSessionLocal, Base, engine
 from app.routers.member_router import router as member_router
 from app.routers.post_router import router as post_router
